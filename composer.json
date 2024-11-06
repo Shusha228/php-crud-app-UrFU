@@ -1,0 +1,21 @@
+{
+  "name": "solvian/message-wall",
+  "description": "Simple message wall CRUD application with user registration and authentication",
+  "require": {
+    "php": "^8.2",
+    "vlucas/phpdotenv": "^5.5",
+    "symfony/http-foundation": "^5.3",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "src/"
+    },
+    "files": [
+      "database/database_init.php"
+    ]
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public"
+  }
+}
