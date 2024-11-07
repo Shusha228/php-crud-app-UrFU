@@ -176,7 +176,7 @@
         <p><strong><?php echo htmlspecialchars($message->author); ?></strong>:</p>
         <p><?php echo nl2br(htmlspecialchars($message->content)); ?></p>
         <p><small>Опубликовано: <?php echo $message->created_at; ?></small></p>
-		<?php if(($message->user_id === $userId) and ((($unixTimeCreated = strtotime($message->created_at)) - time()) > 5)) : ?>
+		<?php if(($message->user_id === $userId) and ((time() - strtotime($message->created_at)) < 5)) : ?>
             <a href="javascript:void(0);" onclick="openEditModal(<?php echo $message->id; ?>, '<?php echo htmlspecialchars($message->content, ENT_QUOTES); ?>')">Редактировать</a> |
             <a href="/message/delete?id=<?php echo $message->id; ?>" onclick="return confirm('Удалить это сообщение?');">Удалить</a>
 		<?php endif; ?>

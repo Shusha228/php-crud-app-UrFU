@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace app\core;
 
-use function str_starts_with;
-
 class View{
 
 	/**
@@ -29,6 +27,6 @@ class View{
 	}
 
 	public static function redirect(string $url) : void{
-		header('Location: ' . str_starts_with($url, '/') ? $url : '/' . $url);
+		header('Location: ' . $url);
 	}
 }
