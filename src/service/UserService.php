@@ -14,11 +14,11 @@ class UserService{
 	){
 	}
 
-	public function register($name, $email, $password) : UserDTO{
+	public function register(string $name, string $email, string $password) : UserDTO{
 		return $this->userRepository->createUser($name, $email, $password);
 	}
 
-	public function login($email, $password) : ?UserDTO{
+	public function login(string $email, string $password) : ?UserDTO{
 		$user = $this->userRepository->findUserByEmail($email);
 		if($user !== null && password_verify($password, $user->password)){
 			$_SESSION['user_id'] = $user->id;
